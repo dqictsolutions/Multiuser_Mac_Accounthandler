@@ -18,7 +18,7 @@
    	fi
 
 	# JAMF Helper window as it appears for targeted computers
-    if [[ $loggedInUser == "Admin" ]] || [[ $loggedInUser == "mediaspace" ]] || [[ $loggedInUser == "admenroll" ]] || [[ $loggedInUser == "LabSpace" ]]; then 
+    if [[ $loggedInUser == "Admin" ]] || [[ $loggedInUser == "user1" ]] || [[ $loggedInUser == "user2" ]] || [[ $loggedInUser == "user3" ]]; then 
     	echo "$loggedInUser is not to be deleted. Skipping dialog."
     else
         userChoice=$("$jamfHelper" -windowType "$windowType" -lockHUD -title "$title" -timeout "$timeout" -defaultButton "$defaultButton" -icon "$icon" -description "$description" -alignDescription "$alignDescription" -alignHeading "$alignHeading" -button1 "$button1" -button2 "$button2")
@@ -32,7 +32,7 @@
    			if [[ ! -f $FILE ]]; then
    				touch $FILE
    			fi
-        	if [[ $loggedInUser == "Admin" ]] || [[ $loggedInUser == "mediaspace" ]] || [[ $loggedInUser == "admenroll" ]] || [[ $loggedInUser == "LabSpace" ]]; then
+        	if [[ $loggedInUser == "Admin" ]] || [[ $loggedInUser == "user1" ]] || [[ $loggedInUser == "user2" ]] || [[ $loggedInUser == "user3" ]]; then
             	echo "Check 2: $loggedInUser is not added to deletion list"
             else
 				grep -xqF -- "$loggedInUser" "$FILE" || echo "$loggedInUser" >> "$FILE"
